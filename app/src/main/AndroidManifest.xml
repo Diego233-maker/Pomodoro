@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ================================================================= -->
+    <!-- EXAMEN: PERMISOS NECESARIOS PARA FOREGROUND SERVICES Y NOTIFICACIONES -->
+    <!-- ================================================================= -->
+
+    <!-- Permiso básico para ejecutar un servicio en primer plano -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <!-- Permiso requerido en Android 14+ especificando el tipo de servicio -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+
+    <!-- EXAMEN CLAVE: Permiso obligatorio en Android 13 (API 33)+ para mostrar notificaciones -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PomodoroTimer">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ================================================================= -->
+        <!-- EXAMEN: DECLARACIÓN DEL SERVICIO (FOREGROUND SERVICE) -->
+        <!-- ================================================================= -->
+        <!-- 1. android:name: Nombre de la clase que extiende de Service -->
+        <!-- 2. android:exported="false": Indica que componentes externos de otras apps no pueden iniciar este servicio -->
+        <!-- 3. android:foregroundServiceType: Obligatorio para definir la categoría del servicio -->
+        <service android:name=".PomodoroService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"/>
+    </application>
+
+</manifest>

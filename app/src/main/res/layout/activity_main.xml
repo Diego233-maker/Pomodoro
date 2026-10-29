@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal"
+    android:id="@+id/main"
+    android:background="#000000">
+
+    <TextView
+        android:id="@+id/tvEstadoCiclo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LISTO PARA INICIAR"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#BB86FC"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvTiempoRestante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25:00"
+        android:textSize="64sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginVertical="24dp"/>
+
+    <TextView
+        android:id="@+id/tvCiclosCompletados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ciclos completados: 0"
+        android:textSize="16sp"
+        android:textColor="#AAAAAA"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Configuración de tiempos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp">
+
+        <EditText
+            android:id="@+id/etTiempoConcentracion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Concentración (min)"
+            android:inputType="number"
+            android:text="25"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:gravity="center"/>
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/etTiempoDescanso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Descanso (min)"
+            android:inputType="number"
+            android:text="5"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#888888"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- Controles -->
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Pomodoro"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/btnPausarReanudar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pausar"
+        android:textColor="#000000"
+        android:backgroundTint="#81C784"
+        android:enabled="false"
+        android:layout_marginTop="8dp"/>
+
+    <Button
+        android:id="@+id/btnDetener"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detener"
+        android:backgroundTint="#CF6679"
+        android:textColor="#000000"
+        android:enabled="false"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>
